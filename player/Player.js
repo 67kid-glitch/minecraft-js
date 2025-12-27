@@ -1,36 +1,61 @@
 class Player {
   constructor(camera) {
     this.camera = camera;
-    this.keys = {};
+
+    // Player root (yaw)
+    this.body = new THREE.Object3D();
+    this.body.position.set(0, 2, 5);
+    this.body.add(camera);
+
+    // Camera pitch only
+    camera.position.set(0, 0, 0);
+
     this.yaw = 0;
     this.pitch = 0;
-    this.speed = 0.15;
 
-    window.addEventListener("keydown", e => this.keys[e.key] = true);
-    window.addEventListener("keyup", e => this.keys[e.key] = false);
+    this.speed = 0.15;
+    this.sensitivity = 0.002;
+
+    this.keys = {};
+
+    window.addEventListener("keydown", e => this.keys[e.key.toLowerCase()] = true);
+    window.addEventListener("keyup", e => this.keys[e.key.toLowerCase()] = false);
 
     document.addEventListener("mousemove", e => {
-      if (document.pointerLockElement) {
-        this.yaw -= e.movementX * 0.002;
-        this.pitch -= e.movementY * 0.002;
-        this.pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, this.pitch));
-        this.camera.rotation.set(this.pitch, this.yaw, 0);
-      }
+      if (!document.pointerLockElement) return;
+
+      this.yaw -= e.movementX * this.sensitivity;
+      this.pitch -= e.movementY * this.sensitivity;
+
+      const limit = Math.PI / 2 - 0.01;
+      this.pitch = Math.max(-limit, Math.min(limit, this.pitch));
+
+      this.body.rotation.y = this.yaw;
+      this.camera.rotation.x = this.pitch;
     });
   }
 
+  addToScene(scene) {
+    scene.add(this.body);
+  }
+
   update() {
-    const forward = new THREE.Vector3();
-    this.camera.getWorldDirection(forward);
-    forward.y = 0;
-    forward.normalize();
+    const forward = new THREE.Vector3(
+      Math.sin(this.yaw),
+      0,
+      Math.cos(this.yaw)
+    ).negate();
 
-    const right = new THREE.Vector3().crossVectors(forward, new THREE.Vector3(0, 1, 0));
+    const right = new THREE.Vector3(
+      Math.cos(this.yaw),
+      0,
+      -Math.sin(this.yaw)
+    );
 
-    if (this.keys["w"]) this.camera.position.addScaledVector(forward, this.speed);
-    if (this.keys["s"]) this.camera.position.addScaledVector(forward, -this.speed);
-    if (this.keys["a"]) this.camera.position.addScaledVector(right, -this.speed);
-    if (this.keys["d"]) this.camera.position.addScaledVector(right, this.speed);
+    if (this.keys["w"]) this.body.position.addScaledVector(forward, this.speed);
+    if (this.keys["s"]) this.body.position.addScaledVector(forward, -this.speed);
+    if (this.keys["a"]) this.body.position.addScaledVector(right, -this.speed);
+    if (this.keys["d"]) this.body.position.addScaledVector(right, this.speed);
   }
 }
 
