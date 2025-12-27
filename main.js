@@ -11,6 +11,12 @@ startScreen.addEventListener("click", () => {
   startScreen.style.display = "none";
 });
 const renderer = new Renderer();
+// === DEBUG TEST CUBE (DO NOT SKIP) ===
+const testGeo = new THREE.BoxGeometry(5, 5, 5);
+const testMat = new THREE.MeshLambertMaterial({ color: 0xff0000 });
+const testCube = new THREE.Mesh(testGeo, testMat);
+testCube.position.set(0, 5, 0);
+renderer.scene.add(testCube);
 const world = new World(renderer.scene);
 const player = new Player(renderer.camera);
 const mobs = new MobSystem(renderer.scene);
