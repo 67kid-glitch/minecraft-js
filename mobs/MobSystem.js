@@ -30,3 +30,11 @@ class MobSystem {
 }
 
 window.MobSystem = MobSystem;
+spawnMob(name, pos) {
+  const data = MOB_DATA.find(m => m.name === name);
+  if (!data) return;
+
+  const mob = new Mob(data, this.scene);
+  mob.mesh.position.copy(pos);
+  this.mobs.push(mob);
+}
