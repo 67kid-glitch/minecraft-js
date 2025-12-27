@@ -4,7 +4,12 @@ import { Player } from "./player/Player.js";
 import { Renderer } from "./engine/Renderer.js";
 import { MobSystem } from "./mobs/MobSystem.js";
 import { StructureSystem } from "./world/StructureSystem.js";
+const startScreen = document.getElementById("startScreen");
 
+startScreen.addEventListener("click", () => {
+  document.body.requestPointerLock();
+  startScreen.style.display = "none";
+});
 const renderer = new Renderer();
 const world = new World(renderer.scene);
 const player = new Player(renderer.camera);
