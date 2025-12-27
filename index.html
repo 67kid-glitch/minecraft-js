@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <title>Minecraft JS</title>
+  <meta charset="UTF-8">
+  <title>Minecraft</title>
   <style>
-    body { margin: 0; overflow: hidden; }
-    canvas { display: block; }
+    body { margin: 0; overflow: hidden; background: black; }
   </style>
 </head>
 <body>
-  <div id="click" style="
+
+<div id="click" style="
   position:fixed;
   top:0; left:0;
   width:100vw; height:100vh;
@@ -24,5 +24,17 @@
 ">
   Click to play
 </div>
+
+<!-- ✅ THREE.JS MUST BE FIRST -->
+<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+
+<!-- ✅ GAME FILES (ORDER MATTERS) -->
+<script src="engine/Renderer.js"></script>
+<script src="world/Block.js"></script>
+<script src="world/Chunk.js"></script>
+<script src="world/World.js"></script>
+<script src="player/Player.js"></script>
+<script src="main.js"></script>
+
 </body>
 </html>
