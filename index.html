@@ -1,35 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Minecraft Clone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Block Game</title>
+  <style>
+    body { margin:0; overflow:hidden; }
+  </style>
 </head>
+<body>
 
-<body style="margin:0; overflow:hidden;">
+<div id="startScreen"
+     style="
+       position:fixed;
+       inset:0;
+       background:black;
+       color:white;
+       display:flex;
+       align-items:center;
+       justify-content:center;
+       font-size:32px;
+       cursor:pointer;
+       z-index:10;
+     ">
+  Click to Play
+</div>
 
-  <div id="startScreen"
-       style="
-         position:fixed;
-         inset:0;
-         background:#000;
-         color:white;
-         display:flex;
-         align-items:center;
-         justify-content:center;
-         font-size:32px;
-         font-family:sans-serif;
-         cursor:pointer;
-         z-index:10;
-       ">
-    Click to Play
-  </div>
+<!-- THREE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 
-  <!-- ✅ THREE.JS MUST LOAD FIRST -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<!-- ENGINE (ORDER MATTERS) -->
+<script src="engine/Renderer.js"></script>
 
-  <!-- ✅ YOUR GAME -->
-  <script type="module" src="./main.js"></script>
+<!-- WORLD -->
+<script src="world/World.js"></script>
+<script src="world/Structure.js"></script>
+<script src="world/StructureData.js"></script>
+<script src="world/StructureSystem.js"></script>
+
+<!-- PLAYER -->
+<script src="player/Player.js"></script>
+
+<!-- MOBS -->
+<script src="mobs/Mob.js"></script>
+<script src="mobs/MobData.js"></script>
+<script src="mobs/MobSystem.js"></script>
+
+<!-- MAIN (LAST) -->
+<script src="main.js"></script>
 
 </body>
 </html>
