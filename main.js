@@ -1,4 +1,6 @@
 alert("main.js running");
+console.log("Renderer:", window.Renderer);
+console.log("Player:", window.Player);
 // click to play
 const startScreen = document.getElementById("startScreen");
 startScreen.onclick = () => {
