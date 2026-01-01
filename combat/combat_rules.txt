@@ -1,0 +1,12 @@
+COMBAT RULES
+
+Enemies:
+- Fixed difficulty
+
+Bosses:
+- Scale with player
+- Cheat
+- Break rules
+
+Combat is skill-based.
+Minimal RNG.
