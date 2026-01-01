@@ -1,0 +1,15 @@
+CAMERA SYSTEM
+
+Normal State:
+- Smooth
+- Player-following
+- Mario Odyssey / BOTW style
+
+Hostile State (100% Completion):
+- Delayed movement
+- Forced angles
+- Pulls away during combat
+- Treated as an enemy entity
+
+Camera has intention.
+Camera can fight.
