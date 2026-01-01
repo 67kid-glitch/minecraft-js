@@ -1,0 +1,11 @@
+SANS
+
+Bullet-hell combat.
+Dodging-focused.
+
+Personality:
+- Chill
+- Comments on player behavior
+- Remembers resets
+
+Likes Red.
