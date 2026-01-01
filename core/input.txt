@@ -1,0 +1,10 @@
+INPUT SYSTEM
+
+Inputs are mapped to actions.
+Actions are interpreted per character.
+
+Example:
+- Jump does not behave the same for Mario and Sans.
+- Interact may trigger dialogue, combat, or insults.
+
+Input system never depends on engine-specific code.
