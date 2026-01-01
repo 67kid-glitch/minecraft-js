@@ -1,0 +1,12 @@
+WORLD MAP
+
+Worlds are nodes in a graph.
+They do not connect logically.
+
+Travel examples:
+- Robot pirate ship
+- Teleport malfunction
+- Forced cutscene
+- Red venting extremely far away
+
+Worlds can overlap during boss fights.
