@@ -1,0 +1,9 @@
+RED (AMONG US)
+
+Knife-based combat.
+Vent traversal.
+
+Can disappear far away but remains active.
+Cannot leave the game.
+
+Silent.
