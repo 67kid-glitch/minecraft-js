@@ -1,0 +1,11 @@
+MARIO
+
+Movement-focused character.
+High momentum.
+Best for speedrunning.
+
+Special:
+- Combo-based movement
+- Synergy with friendly characters
+
+Resents being ignored.
